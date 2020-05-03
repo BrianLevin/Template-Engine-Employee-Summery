@@ -105,3 +105,50 @@ function createEngineer() {
     });
 
 }
+
+function createIntern() {
+    inquirer.prompt([
+        {
+            type: 'input',
+            name: 'internName',
+            message: 'Please enter your intern\s name: ',
+
+
+        },
+
+        {
+            type: 'input',
+            name: 'internId',
+            message: 'what is your interns"s id?',
+
+
+
+        },
+
+        {
+            type: 'input',
+            name: 'internEmail',
+            message: 'what is your intern"s email?',
+
+
+
+        },
+
+        {
+            type: 'input',
+            name: 'internSchool',
+            message: 'what is your interns"s school?',
+
+
+
+        },
+
+
+
+
+    ]).then(function (answers) {
+        var intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
+        teamMembers.push(intern);
+        createTeam();
+    });
+}
