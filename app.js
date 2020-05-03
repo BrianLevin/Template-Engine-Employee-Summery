@@ -6,3 +6,5 @@ const path = require("path");
 const fs = require("fs");
 
 const render = require("./lib/htmlRenderer");
+
+const teamMembers = [];
