@@ -152,3 +152,37 @@ function createIntern() {
         createTeam();
     });
 }
+
+function createTeam() {
+    inquirer.prompt([
+
+        {
+            type: 'list',
+            name: 'memberChoice',
+            message: ' which type of member would you like to add?',
+            choices: [
+                'Engineer',
+                'Intern',
+                'Manager',
+                'Done',
+            ]
+
+        }
+
+    ])
+        .then(function (answers) {
+            if (answers.memberChoice == 'Engineer') {
+                createEngineer();
+            }
+            if (answers.memberChoice === 'Intern') {
+                createIntern();
+            }
+            if (answers.memberChoice === 'Manager') {
+                createManager();
+            }
+            if (answers.memberChoice == 'Done') {
+                writeToFile();
+            }
+        })
+
+}
