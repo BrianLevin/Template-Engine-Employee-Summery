@@ -186,3 +186,13 @@ function createTeam() {
         })
 
 }
+
+function writeToFile() {
+    if (fs.existsSync('./Team.html')) {
+        console.log('Team html alreadys exists')
+    } else {
+        fs.writeFileSync('./Team.html', render(teamMembers));
+    }
+}
+
+createManager();
