@@ -10,28 +10,28 @@ In this assignment, we created a modem CLI that takes in information about emplo
 
 
 ## Libraries and Framework
-Javascript,
+- Javascript
 
-Node.js,
+- Node.js
 
-NPM,
+- NPM
 
-Inquirer,
+- Inquirer
 
-Jest,
+- Jest
 
-FS,
+- FS
 
-Path,
+- Path
 
 
 
 
 ## Process
 
-I Used pre written Html and  Javascript   to get started.
-I then created the different employee classes.
- I Downloaded the npm package.
-I Created functions to  run each constructor class called in the inquirer.
-I  Rendered each constructor class information  which was created in the inquirer into an  html page. 
+- Used pre written Html and  Javascript   to get started.
+- Created the different employee classes.
+- Downloaded the npm package.
+- Created functions to  run each constructor class called in the inquirer.
+-  Rendered each constructor class information  which was created in the inquirer into an  html page. 
 
