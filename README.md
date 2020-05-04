@@ -15,6 +15,9 @@ Node.js
 NPM
 Inquirer
 Jest
+FS
+Path
+
 
 
 
