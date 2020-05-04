@@ -1,17 +1,17 @@
-const Manager = require("./lib/Manager");
+const Manager = require("./lib/Manager"); // variables which will be read and run through the node modules
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
 
-const render = require("./lib/htmlRenderer");
+const render = require("./lib/htmlRenderer"); // variable which will render the html
 
-const teamMembers = [];
+const teamMembers = []; // array which will hold all the values for the employee classes
 
-function createManager() {
+function createManager() { // function which will run the creat manager
 
-    inquirer.prompt([
+    inquirer.prompt([  // prompts for manager input
         {
             type: 'input',
             name: 'managerName',
@@ -50,16 +50,16 @@ function createManager() {
 
 
 
-    ]).then(function (answers) {
+    ]).then(function (answers) {  // the then fuction will push the user answers into the array
         var manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.managerOfficeNumber);
         teamMembers.push(manager);
-        createTeam();
+        createTeam(); // user will then pick the next tema member from the list
     });
 }
 
-function createEngineer() {
+function createEngineer() { // function which will run the create engineer when called
 
-    inquirer.prompt([
+    inquirer.prompt([ // inputs which hold the user values
         {
             type: 'input',
             name: 'engineerName',
@@ -98,16 +98,16 @@ function createEngineer() {
 
 
 
-    ]).then(function (answers) {
+    ]).then(function (answers) { // then function which pushes the answers into the array
         var engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGitHub);
         teamMembers.push(engineer);
-        createTeam();
+        createTeam(); // function which allows the user to selctect next team mate
     });
 
 }
 
-function createIntern() {
-    inquirer.prompt([
+function createIntern() { // function which holds the inttern function
+    inquirer.prompt([ // prompt which will holds the user choice for the intern
         {
             type: 'input',
             name: 'internName',
@@ -146,15 +146,15 @@ function createIntern() {
 
 
 
-    ]).then(function (answers) {
+    ]).then(function (answers) { // the then function which pushes users  answers to the team members array
         var intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
         teamMembers.push(intern);
-        createTeam();
+        createTeam(); //  gives the user a choice to choose the next team mate
     });
 }
 
-function createTeam() {
-    inquirer.prompt([
+function createTeam() { // This function allows the user to pick a teammate
+    inquirer.prompt([ // this prompt lists the teammates the user can choose from
 
         {
             type: 'list',
@@ -170,7 +170,7 @@ function createTeam() {
         }
 
     ])
-        .then(function (answers) {
+        .then(function (answers) { // after the user picks the choice, the user will then create the next employy or be done making employees
             if (answers.memberChoice == 'Engineer') {
                 createEngineer();
             }
@@ -187,7 +187,7 @@ function createTeam() {
 
 }
 
-function writeToFile() {
+function writeToFile() { // after the user is done with the promps, their information will be written and rendered to an html file
     if (fs.existsSync('./Team.html')) {
         console.log('Team html alreadys exists')
     } else {
@@ -195,4 +195,4 @@ function writeToFile() {
     }
 }
 
-createManager();
+createManager(); // the manager function will be called first in the command line.
